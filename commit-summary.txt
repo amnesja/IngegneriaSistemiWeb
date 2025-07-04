@@ -1,0 +1,26 @@
+# Changelog: Gestione leggende popolari (commit summary)
+
+## Funzionalità implementate
+- **Registrazione e login utente** con autenticazione JWT.
+- **CRUD leggende**: creazione, visualizzazione, modifica, eliminazione leggende solo da parte dell'autore.
+- **Gestione profilo utente**: visualizzazione, modifica, eliminazione dati personali e delle proprie leggende.
+- **Visualizzazione leggende in Home** con card responsive, username autore e luogo.
+- **Protezione rotte backend** tramite middleware JWT.
+
+## Correzioni e miglioramenti
+- Fix mapping tra `req.userId` e controller.
+- Fix visualizzazione username nelle leggende (popolamento corretto di `username` nel backend).
+- Fix bug submit form (modifica/elimina leggenda non scatenano più il submit del profilo).
+- Miglioramento feedback utente: alert dettagliati e validazione campi obbligatori in registrazione.
+- Log di debug per la registrazione (rimosso dopo test).
+
+## Struttura progetto
+- **Backend**: Express, MongoDB, JWT, Mongoose, CORS, dotenv.
+- **Frontend**: Vue 3, Bootstrap, Axios, gestione stato utente e token in localStorage.
+
+## Note
+- Tutte le operazioni CRUD sono protette e disponibili solo per l'utente autenticato.
+- La Home mostra tutte le leggende con autore e luogo.
+- La sezione profilo permette la gestione delle proprie leggende e dati personali.
+
+

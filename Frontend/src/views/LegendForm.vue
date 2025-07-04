@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Aggiungi una leggenda</h2>
-    <form @submit.prevent="submitForm">
+    <form @submit.prevent="submitLegend">
       <div class="mb-3">
         <label for="title" class="form-label">Titolo</label>
         <input v-model="title" id="title" class="form-control" required />
@@ -21,17 +21,32 @@
 
 <script setup>
 import { ref } from 'vue'
+import api from '../api'
 
 const title = ref('')
 const description = ref('')
 const location = ref('')
 
-const submitForm = () => {
-  console.log('Invio leggenda:', {
-    title: title.value,
-    description: description.value,
-    location: location.value
-  })
-  // Qui in seguito metterai la chiamata POST via Axios al backend
+const submitLegend = async () => {
+  const token = localStorage.getItem('token')
+  try {
+    await api.post('/legends', {
+      title: title.value,
+      description: description.value,
+      location: location.value
+    }, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    alert('Leggenda salvata!')
+  } catch (err) {
+    if (err.response && err.response.data && err.response.data.message) {
+      alert('Errore: ' + err.response.data.message)
+    } else {
+      alert('Errore durante il salvataggio')
+    }
+    console.error(err)
+  }
 }
 </script>

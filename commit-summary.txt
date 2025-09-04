@@ -23,4 +23,19 @@
 - La Home mostra tutte le leggende con autore e luogo.
 - La sezione profilo permette la gestione delle proprie leggende e dati personali.
 
+## Modifiche dettagliate (commenti riga per riga)
+- Aggiunti commenti esplicativi riga per riga in:
+  - Frontend/src/views/HomeView.vue (spiegazione template, script e stile)
+  - Backend/controllers/comment.controller.js (spiegazione logica API commenti)
+  - Backend/models/Comment.js (spiegazione modello Mongoose commenti)
+  - Backend/routes/comment.routes.js (spiegazione rotte commenti)
+
+## Motivazione
+- I commenti aiutano la comprensione del flusso dati, delle funzioni e delle relazioni tra frontend e backend.
+- Ogni file ora è documentato per facilitare debugging, estensioni e onboarding di nuovi sviluppatori.
+
+## Effetto
+- Nessuna modifica funzionale: solo aggiunta di spiegazioni e commenti.
+- Il codice è ora più leggibile e mantenibile.
+
 

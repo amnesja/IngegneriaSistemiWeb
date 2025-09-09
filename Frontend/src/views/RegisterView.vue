@@ -61,7 +61,11 @@ const handleRegister = async () => {
     const response = await api.post('/auth/register', { username: username.value, email: email.value, password: password.value });
     // Salva token JWT in localStorage
     const token = response.data.token;
+    const userObj = response.data.user;
     localStorage.setItem('token', token);
+    if (userObj) {
+      localStorage.setItem('user', JSON.stringify(userObj));
+    }
     currentToken.value = token;
     alert('Registrazione avvenuta con successo!');
     // Redirect 
